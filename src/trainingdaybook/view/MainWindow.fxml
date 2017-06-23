@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="trainingdaybook.view.MainWindowController">
+   <children>
+      <TabPane prefHeight="500.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Тренування">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.31954887218045114, 0.581453634085213" prefHeight="471.0" prefWidth="800.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="469.0" prefWidth="282.0">
+                                 <children>
+                                    <TableView fx:id="tableTrainings" editable="true" layoutX="-25.0" layoutY="14.0" prefHeight="432.0" prefWidth="252.0" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                          <TableColumn fx:id="idTrainingColumn" prefWidth="56.0" text="№" />            
+                                          <TableColumn fx:id="dateTrainingColumn" prefWidth="93.0" text="Дата" />
+                                          <TableColumn fx:id="titleTrainingColumn" prefWidth="98.0" text="Тип тренування" />                      
+                                      </columns>                     
+                                    </TableView>
+                                    <HBox layoutX="51.0" layoutY="439.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="6.0">
+                                       <children>
+                                          <Button layoutX="118.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleNewTraining" prefHeight="25.0" prefWidth="76.0" text="Додати">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="168.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleEditTraining" prefHeight="25.0" prefWidth="67.0" text="Змінити">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="234.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleDeleteTraining" prefHeight="25.0" prefWidth="82.0" text="Видалити" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane prefHeight="469.0" prefWidth="176.0">
+                                 <children>
+                                    <TableView fx:id="tableExercises" editable="true" prefHeight="431.0" prefWidth="204.0">
+                                      <columns>
+                                          <TableColumn fx:id="idExerciseColumn" prefWidth="40.0" text="№" />
+                                        <TableColumn fx:id="titleExerciseColumn" prefWidth="162.0" text="Вправи" />
+                                      </columns>
+                                    </TableView>
+                                    <HBox layoutX="14.0" layoutY="439.0" prefHeight="25.0" prefWidth="185.0">
+                                       <children>
+                                          <Button layoutX="118.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleNewExercise" prefHeight="25.0" prefWidth="70.0" text="+">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="168.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleEditExercise" prefHeight="25.0" prefWidth="74.0" text="...">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="234.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleDeleteExercise" prefHeight="25.0" prefWidth="69.0" text="-" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TreeTableView prefHeight="430.0" prefWidth="517.0" visible="false">
+                                       <columns>
+                                          <TreeTableColumn prefWidth="142.0" text="Вправа" />
+                                          <TreeTableColumn prefWidth="44.0" text="Підхід" />
+                                          <TreeTableColumn prefWidth="94.0" text="Кількість разів" />
+                                          <TreeTableColumn minWidth="0.0" prefWidth="83.0" text="Вага" />
+                                          <TreeTableColumn prefWidth="123.0" text="Час на відпочинок" />
+                                       </columns>
+                                    </TreeTableView>
+                                    <TableView fx:id="tableSets" editable="true" prefHeight="430.0" prefWidth="331.0">
+                                       <columns>
+                                          <TableColumn fx:id="setColumn" minWidth="9.0" prefWidth="51.0" text="Підхід" />
+                                          <TableColumn fx:id="countInSetColumn" prefWidth="94.0" text="Кількість разів" />
+                                          <TableColumn fx:id="wheightColumn" minWidth="0.0" prefWidth="64.0" text="Вага (кг)" />
+                                          <TableColumn fx:id="timeRelaxColumn" prefWidth="119.0" text="Час на відпочинок" />
+                                       </columns>
+                                    </TableView>
+                                    <HBox layoutX="247.0" layoutY="439.0" prefHeight="25.0" prefWidth="85.0">
+                                       <children>
+                                          <Button layoutX="118.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleNewSet" text="+">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="168.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleEditSet" text="...">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="234.0" layoutY="259.0" mnemonicParsing="false" onMouseClicked="#handleDeleteSet" text="-" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Типи тренувань">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tablePilots" prefHeight="424.0" prefWidth="800.0">
+                           <columns>
+                              <TableColumn fx:id="idPilotColumn" prefWidth="48.0" text="№" />
+                              <TableColumn fx:id="firstNamePilotColumn" prefWidth="163.0" text="Тип тренування" />
+                              <TableColumn fx:id="lastNamePilotColumn" prefWidth="148.0" text="Вправа" />
+                              <TableColumn fx:id="thirdNamePilotColumn" prefWidth="144.0" text="Підхід" />
+                              <TableColumn fx:id="identifiCodePilotColumn" prefWidth="162.0" text="Ідентифікаційний код" />
+                              <TableColumn fx:id="experiancePilotColumn" prefWidth="131.0" text="Досвід" />
+                           </columns>
+                        </TableView>
+                        <HBox layoutX="592.0" layoutY="432.0">
+                           <children>
+                              <Button layoutX="118.0" layoutY="259.0" mnemonicParsing="false" text="Додати">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button layoutX="168.0" layoutY="259.0" mnemonicParsing="false" text="Змінити">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button layoutX="234.0" layoutY="259.0" mnemonicParsing="false" text="Видалити" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Типи вправ">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tablePilots1" prefHeight="424.0" prefWidth="800.0">
+                           <columns>
+                              <TableColumn fx:id="idPilotColumn1" prefWidth="27.0" text="№" />
+                              <TableColumn fx:id="firstNamePilotColumn1" prefWidth="87.0" text="Дата" />
+                              <TableColumn fx:id="lastNamePilotColumn1" prefWidth="203.0" text="Тип тренування" />
+                              <TableColumn fx:id="thirdNamePilotColumn1" prefWidth="180.0" text="Вправа" />
+                              <TableColumn fx:id="identifiCodePilotColumn1" prefWidth="44.0" text="Підхід" />
+                              <TableColumn fx:id="experiancePilotColumn1" prefWidth="96.0" text="Кількість разів" />
+                              <TableColumn fx:id="experiancePilotColumn11" prefWidth="44.0" text="Вага" />
+                              <TableColumn fx:id="experiancePilotColumn111" prefWidth="116.0" text="Час на відпочинок" />
+                           </columns>
+                        </TableView>
+                        <HBox layoutX="592.0" layoutY="432.0">
+                           <children>
+                              <Button layoutX="118.0" layoutY="259.0" mnemonicParsing="false" text="Додати">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button layoutX="168.0" layoutY="259.0" mnemonicParsing="false" text="Змінити">
+                                 <HBox.margin>
+                                    <Insets right="5.0" />
+                                 </HBox.margin>
+                              </Button>
+                              <Button layoutX="234.0" layoutY="259.0" mnemonicParsing="false" text="Видалити" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab text="Тренування з Grid">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.34962406015037595" prefHeight="471.0" prefWidth="800.0">
+                           <items>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <TableView fx:id="tableRoutes1" layoutX="-25.0" layoutY="14.0" prefHeight="469.0" prefWidth="369.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <columns>
+                                          <TableColumn fx:id="idColumn1" prefWidth="32.0" text="№" />
+                                          <TableColumn fx:id="numberOfRouteColumn1" prefWidth="106.0" text="Дата" />
+                                          <TableColumn fx:id="cityDepartureColumn1" prefWidth="136.0" text="Тип тренування" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                                 <children>
+                                    <HBox layoutX="118.0" layoutY="259.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0">
+                                       <children>
+                                          <Button layoutX="118.0" layoutY="259.0" mnemonicParsing="false" text="Додати">
+                                             <opaqueInsets>
+                                                <Insets />
+                                             </opaqueInsets>
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="168.0" layoutY="259.0" mnemonicParsing="false" text="Змінити">
+                                             <HBox.margin>
+                                                <Insets right="5.0" />
+                                             </HBox.margin>
+                                          </Button>
+                                          <Button layoutX="234.0" layoutY="259.0" mnemonicParsing="false" text="Видалити" />
+                                       </children>
+                                    </HBox>
+                                    <GridPane layoutX="36.0" layoutY="31.0" prefHeight="145.0" prefWidth="400.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints maxHeight="92.0" minHeight="0.0" prefHeight="27.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="194.0" minHeight="10.0" prefHeight="93.0" vgrow="SOMETIMES" />
+                                        <RowConstraints maxHeight="214.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label prefHeight="17.0" prefWidth="99.0" text="Жим штанги" />
+                                          <GridPane GridPane.rowIndex="1">
+                                            <columnConstraints>
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="74.0" />
+                                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="326.0" minWidth="10.0" prefWidth="326.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                            </rowConstraints>
+                                             <children>
+                                                <Label prefHeight="17.0" prefWidth="65.0" text="Label" GridPane.rowIndex="1">
+                                                   <GridPane.margin>
+                                                      <Insets left="50.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="65.0" text="10">
+                                                   <GridPane.margin>
+                                                      <Insets left="50.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                                <Label prefHeight="17.0" prefWidth="65.0" text="50" GridPane.columnIndex="1" />
+                                                <Label prefHeight="17.0" prefWidth="65.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label prefHeight="17.0" prefWidth="65.0" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                <Label prefHeight="17.0" prefWidth="65.0" text="Label" GridPane.rowIndex="2">
+                                                   <GridPane.margin>
+                                                      <Insets left="50.0" />
+                                                   </GridPane.margin>
+                                                </Label>
+                                             </children>
+                                          </GridPane>
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                           </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
